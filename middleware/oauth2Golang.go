@@ -7,7 +7,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
-	"golang.org/x/oauth2/google"
 )
 
 type Auth struct {
@@ -22,17 +21,6 @@ var (
 
 func CreateAuth(oauth2Google *oauth2.Config) Auth {
 	return Auth{oauth2Google}
-}
-
-func ConfigOauth2Google() *oauth2.Config {
-	googleOauthConfig = &oauth2.Config{
-		RedirectURL:  "http://localhost:8000/v5/google/callback",
-		ClientID:     "642584725255-00pc0njmjra4a8le6qvnaoblvs0oou0m.apps.googleusercontent.com",
-		ClientSecret: "rM4o3pxRXOZIbpWGYxz235ah",
-		Scopes:       []string{"https://www.googleapis.com/auth/userinfo.email"},
-		Endpoint:     google.Endpoint,
-	}
-	return googleOauthConfig
 }
 
 func (a Auth) HandleGoogleLogin(c *gin.Context) {

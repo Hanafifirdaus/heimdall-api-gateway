@@ -1,4 +1,4 @@
-package middleware
+package main
 
 import (
 	"fmt"
@@ -19,6 +19,10 @@ var (
 	oauthStateString  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	googleOauthConfig *oauth2.Config
 )
+
+func CreateAuth(oauth2Google *oauth2.Config) Auth {
+	return Auth{oauth2Google}
+}
 
 func ConfigOauth2Google() *oauth2.Config {
 	googleOauthConfig = &oauth2.Config{

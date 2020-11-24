@@ -1,5 +1,7 @@
-package service
+package main
 
-func Test() string {
-	return "testing package"
+import "fmt"
+
+func main() {
+	fmt.Println("OK")
 }
